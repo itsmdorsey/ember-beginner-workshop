@@ -1,9 +1,14 @@
 App.Router.map(function() {
-  // put your routes here
+ this.resource('stories', function() {});
 });
 
-App.IndexRoute = Ember.Route.extend({
+//App.IndexRoute = Ember.Route.extend({
+//  redirect: function(params) {
+ //   this.transitionTo("stories");
+//  }
+//});
+App.StoriesIndexRoute = Ember.Route.extend({
   model: function() {
-    return ['red', 'yellow', 'blue'];
+    return this.get("store").findAll("story");
   }
 });
